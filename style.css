@@ -1,0 +1,95 @@
+/* typed effect */
+
+
+.type-wrap{
+	padding:20px;
+	background:#111;
+  color: red;
+  text-align: center;
+  font-size:25px;
+  font-family: 'Noto Serif JP', serif;
+  /* text-shadow: 0 0 2px #fff,0 0 10px #fff; */
+}
+
+
+
+/* typed effect */
+
+
+/* Glow */
+h1{
+  text-align: center;
+		color: #fff;
+		text-shadow: 0 0 10px #fff,0 0 15px #fff;
+		background: #111;
+    font-family: 'Noto Serif JP', serif;
+	}
+
+
+.h1-2 {
+
+  text-align: center;
+		color: #fff;
+		text-shadow: 0 0 10px #fff,0 0 15px #fff;
+		background: #111;
+		padding: 10px;
+    font-family: 'Noto Serif JP', serif;
+    margin: 200px auto;
+      
+    
+
+
+html,body{
+  margin:0;
+  width: 100%;
+  position: absolute;
+
+}
+
+.main-container{
+  width: 100%;
+  position: relative;
+}
+
+
+/* h1{
+  width: 100%;
+  margin-top: 7%;
+  position: absolute;
+  font-size: 8vw;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-family: 'Nerko One', cursive;
+  letter-spacing: 5px;
+  text-shadow:10px 0 10px #e71d1b; */
+
+
+}
+
+#clock{
+
+  padding-top:180px;
+
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  font-size: 15vw;
+  color: white;
+  text-align: center;
+  font-family: 'Nerko One', cursive;
+  text-shadow:10px 0 10px #e71d1b;
+}
+
+.img-background{
+
+
+
+  width: 100%;
+  text-align: center;
+  border-radius: 100px;
+
+
+}
+
+

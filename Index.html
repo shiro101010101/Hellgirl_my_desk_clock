@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Jigokuclock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+  </head>
+
+  <body onload="realtimeClock()">
+
+        <!-- type -->
+        <div class="type-wrap">
+          <h1>地獄時計</h1>
+          <h1>人を呪わば穴二つ</h1>
+          <div id="typed-strings">
+            <span> <strong>そこにあなたが恨みを晴らしたいと思う</strong> </span>
+            <p><strong>人の名前を書けばいい</strong></p>
+            <p><strong>人を呪わば穴二つ</strong></p>
+              <p><strong>恨みを晴らすかわりに</strong></p>
+              <p><strong>あなたの魂も死後地獄におちることになるわ</strong></p>
+            <p><strong>あとは、あなたがきめることよ</strong></p>
+          </div>
+
+          <span id="typed" style="white-space:pre;"></span>
+
+            <div id="clock">        </div>
+              <div ><img class="img-background "src="./image/jigoku1.jpg" >
+
+                <input type="datetime-local" id="alarmTime">
+                <button onclick="setAlarm(this); " id="alarmButton">流し時間　NagashiTime</button>
+                
+                <div id="alarmOptions" style="display:none;">
+                  <button onclick="snooze();">pomodoro 25min ポメドーロ流し</button>
+                
+                  <button onclick="stopAlarm();">Forgive もう許す</button>
+                </div>
+
+              </div>
+        </div>
+          <!-- type -->
+
+
+
+
+          <!-- アラーム機能 -->
+
+       
+         
+
+          
+          <script>
+
+            var alarmSound = new Audio();
+            alarmSound.src = 'jogoku.mp3';
+            var alarmTimer;
+
+            function setAlarm(button) {
+              var ms = document.getElementById('alarmTime').valueAsNumber;
+              if (isNaN(ms)) {
+                alert('Invalid Date ');
+                return;
+              }
+
+              var alarm = new Date(ms);
+
+              var alarmTime = new Date(
+                alarm.getUTCFullYear(),
+                alarm.getUTCMonth(),
+                alarm.getUTCDate(),
+                alarm.getUTCHours(),
+                alarm.getUTCMinutes(),
+                alarm.getUTCSeconds()
+              );
+              var differenceInMs = alarmTime.getTime() - (new Date()).getTime();
+
+              if (differenceInMs < 0) {
+                alert('specified Time is already passed');
+                return;
+              }
+
+              alarmTimer = setTimeout(initAlarm, differenceInMs);
+
+              button.innerText = 'Cancel 依頼取消し';
+              button.setAttribute('onclick', 'cancelAlarm(this);')
+
+
+            };
+
+            function cancelAlarm(button) {
+              button.innerText = 'set Alarm';
+              button.setAttribute('onclick', 'setAlarm(this);')
+              clearTimeout(alarmTimer);
+
+            }
+
+
+            function initAlarm() {
+              alarmSound.play();
+              document.getElementById('alarmOptions').style.display = '';
+
+            };
+
+            function stopAlarm() {
+
+              alarmSound.pause;
+              alarmSound.currentTime = 0;
+              document.getElementById('alarmOptions').style.display = 'none';
+              cancelAlarm(document.getElementById('alarmButton'));
+
+            };
+
+            function snooze() {
+              stopAlarm();
+              setTimeout(initAlarm, 1500000);
+            };
+          </script>
+
+
+
+
+
+
+
+  <script src="./index.js" ></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="typed.js"></script>
+<script src="demos.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="typed.js"></script>
+  </body>
+</html>
